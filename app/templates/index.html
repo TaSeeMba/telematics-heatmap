@@ -1,0 +1,17 @@
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <div id="floating-panel">
+    <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+    <button onclick="changeGradient()">Change gradient</button>
+    <button onclick="changeRadius()">Change radius</button>
+    <button onclick="changeOpacity()">Change opacity</button>
+  </div>
+  <div id="map"></div>
+  <!-- Replace the value of the key parameter with your own API key. -->
+  <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&libraries=visualization&callback=initMap">
+      </script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</html>
