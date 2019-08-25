@@ -534,3 +534,36 @@ function getPoints() {
     new google.maps.LatLng(37.751266, -122.403355)
   ];
 }
+
+function submitCsvForm() {
+  console.log("submit event");
+  var fd = new FormData(document.getElementById("fileinfo"));
+  console.log(fd);
+}
+
+$(document).ready(function() { 
+  console.log("ENTERED");
+  $("#button_upload").click(function() { 
+      var fd = new FormData(); 
+      var files = $('#file')[0].files[0]; 
+      fd.append('file', files); 
+      console.log(fd);
+
+      $.ajax({ 
+          url: '/upload', 
+          type: 'post', 
+          data: fd, 
+          contentType: false, 
+          processData: false, 
+          success: function(response){ 
+              console.log(response);
+              if(response != 0){ 
+                 alert('file uploaded'); 
+              } 
+              else{ 
+                  alert('file not uploaded'); 
+              } 
+          }, 
+      }); 
+  }); 
+});

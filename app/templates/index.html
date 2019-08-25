@@ -2,16 +2,24 @@
   <head>
       <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
-  <div id="floating-panel">
-    <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-    <button onclick="changeGradient()">Change gradient</button>
-    <button onclick="changeRadius()">Change radius</button>
-    <button onclick="changeOpacity()">Change opacity</button>
-  </div>
-  <div id="map"></div>
+  <body>
+    <div id="floating-panel">
+      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+      <button onclick="changeGradient()">Change gradient</button>
+      <button onclick="changeRadius()">Change radius</button>
+      <button onclick="changeOpacity()">Change opacity</button>
+    </div>
+    <form method="post" id="fileinfo" name="fileinfo" enctype="multipart/form-data">
+        <label>Select a file:</label><br>
+        <input type="file" name="file" id="file" required />
+        <input type="button" value="Upload File" id="button_upload" name="button_upload"/> 
+        <!-- https://stackoverflow.com/questions/2320069/jquery-ajax-file-upload -->
+    </form>
+    <div id="map"></div>
+  </body>
   <!-- Replace the value of the key parameter with your own API key. -->
+  <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">  </script> 
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUuZ_Z4mNQUTVxOAOjhGjg_dIrbWIEMRI&libraries=visualization&callback=initMap"></script>
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=visualization&callback=initMap">
-      </script>
+
 </html>
