@@ -17,6 +17,19 @@ function initMap() {
   });
 }
 
+function loadMap(mapPoints) {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 13,
+    center: {lat: mapPoints.userCentreLocation.lat, lng: mapPoints.userCentreLocation.lon},
+    mapTypeId: 'satellite'
+  });
+
+  heatmap = new google.maps.visualization.HeatmapLayer({
+    data: mapPoints.points,
+    map: map
+  });
+}
+
 function toggleHeatmap() {
   heatmap.setMap(heatmap.getMap() ? null : map);
 }
@@ -541,29 +554,46 @@ function submitCsvForm() {
   console.log(fd);
 }
 
+function getPointsFromCSV(jsonData) {
+  var points = [];
+  var maxWeight = 0; 
+  let centreLoc = new UserLocation(0, 0);
+  for (var i = 0; i < jsonData.length; i++) {
+    var data = jsonData[i];
+    points.push({location: new google.maps.LatLng(parseFloat(data[0]), parseFloat(data[1])), weight: parseInt(data[2])} );
+    if (maxWeight < data[2]) {
+      centreLoc.lat = parseFloat(data[0]);
+      centreLoc.lon = parseFloat(data[1]);
+      weight = data[2];
+    }
+  }
+  return new MapPoints(centreLoc, points);
+}
+
 $(document).ready(function() { 
   console.log("ENTERED");
   $("#button_upload").click(function() { 
-      var fd = new FormData(); 
-      var files = $('#file')[0].files[0]; 
-      fd.append('file', files); 
-      console.log(fd);
-
-      $.ajax({ 
-          url: '/upload', 
-          type: 'post', 
-          data: fd, 
-          contentType: false, 
-          processData: false, 
-          success: function(response){ 
-              console.log(response);
-              if(response != 0){ 
-                 alert('file uploaded'); 
-              } 
-              else{ 
-                  alert('file not uploaded'); 
-              } 
-          }, 
-      }); 
+    var fd = new FormData(); 
+    var files = $('#file')[0].files[0]; 
+    fd.append('file', files); 
+    $.ajax({ 
+        url: '/upload', 
+        type: 'post', 
+        data: fd, 
+        contentType: false, 
+        processData: false, 
+        success: function(response){ 
+            console.log(response);
+            if(response != 0){ 
+              alert('CSV successfully uploaded. Data rendered!'); 
+              var jsonData = JSON.parse(response);
+              var mapPoints = getPointsFromCSV(jsonData);
+              loadMap(mapPoints);
+            } 
+            else{ 
+                alert('Something went wrong. Please check your data and try again.'); 
+            } 
+        }, 
+    }); 
   }); 
 });
