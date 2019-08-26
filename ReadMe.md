@@ -13,13 +13,17 @@ This app also comes with the following functionality:
 
 # Getting Started
 
-Get a Google Maps API key. Instructions are here: `https://developers.google.com/maps/documentation/javascript/get-api-key#restrict_key`
+Get a Google Maps API key. Instructions are here: https://developers.google.com/maps/documentation/javascript/get-api-key .
+
+* Ensure that you are running in a Python 3 environment.
 
 # Running Application 
 
 To build application : `docker build -t heatmapimage .`
 
-To run application: `docker run -d --name heatmaps -e MAPS_API_KEY=<MAPS_API_KEY_FROM_GOOGLE> -p 80:80 heatmapimage`
+To run application: 
+
+`docker run -d --name heatmaps -e MAPS_API_KEY=<MAPS_API_KEY_FROM_GOOGLE> -p 80:80 heatmapimage`
 
 You should be able to check it in your Docker container's URL, for example: http://192.168.99.100 or http://127.0.0.1
 
