@@ -20,6 +20,7 @@
   <!-- Replace the value of the key parameter with your own API key. -->
   <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">  </script> 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&libraries=visualization&callback=initMap"></script>
+  <script src="{{ url_for('static', filename='js/Utilities.js') }}"></script>
   <script src="{{ url_for('static', filename='js/UserLocation.js') }}"></script>
   <script src="{{ url_for('static', filename='js/MapPoints.js') }}"></script>
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
