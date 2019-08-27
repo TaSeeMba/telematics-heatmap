@@ -102,7 +102,7 @@ $(document).ready(function() {
               var jsonData = JSON.parse(response);
               var mapPoints = getPointsFromCSV(jsonData);
               loadMap(mapPoints);
-              alert('CSV successfully uploaded. Data rendered!'); 
+              alert('CSV successfully uploaded and processed. Click OK for visualization.'); 
             } 
             else{ 
                 alert('Something went wrong. Please check your data and try again.'); 

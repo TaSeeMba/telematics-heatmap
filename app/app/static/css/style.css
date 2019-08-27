@@ -10,9 +10,9 @@ html, body {
   padding: 0;
 }
 #floating-panel {
-  position: absolute;
+  position: fixed;
   top: 10px;
-  left: 25%;
+  left: 35%;
   z-index: 5;
   background-color: #fff;
   padding: 5px;
@@ -25,9 +25,9 @@ html, body {
 #floating-panel {
   background-color: #fff;
   border: 1px solid #999;
-  left: 25%;
+  left: 35%;
   padding: 5px;
-  position: absolute;
+  position: fixed;
   top: 10px;
   z-index: 5;
 }

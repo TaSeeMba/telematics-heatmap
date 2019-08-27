@@ -16,7 +16,7 @@ This app also comes with the following functionality:
 
 # Preview of Running Application
 
-![Image description](sample.png)
+![Preview of running application](demo.gif)
 
 # Getting Started
 
