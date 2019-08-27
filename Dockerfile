@@ -1,5 +1,11 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.7
+FROM python:3.7-slim
 
-COPY . /app
+COPY app /app
 
-RUN pip install --no-cache-dir requirements.txt
+WORKDIR /app
+
+RUN ls -l
+
+RUN pip install -r requirements.txt
+
+CMD python main.py
