@@ -3,6 +3,7 @@ FROM python:3.7-slim
 LABEL maintainer="Tasimba Chirindo"
 
 RUN apt-get update
+# uWSGI is a (big) C application, so you need a C compiler (like gcc or clang) and the Python development headers on a Debian-based distro.
 RUN apt-get install -y build-essential python3-dev nginx
 RUN pip install uwsgi
 
