@@ -1,10 +1,10 @@
-FROM ubuntu:18.10
+FROM python:3.7-slim
 
 LABEL maintainer="Tasimba Chirindo"
 
 RUN apt-get update
-RUN apt-get install -y python3 python3-pip nginx
-RUN pip3 install uwsgi
+RUN apt-get install -y build-essential python3-dev nginx
+RUN pip install uwsgi
 
 RUN rm -v /etc/nginx/nginx.conf
 ADD config/nginx.conf /etc/nginx/
@@ -14,7 +14,7 @@ WORKDIR /app
 
 RUN ls -l
 
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY config/nginx.conf /etc/nginx/sites-enabled/default
 
