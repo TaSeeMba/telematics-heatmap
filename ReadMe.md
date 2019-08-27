@@ -43,7 +43,7 @@ To build application : `docker build -t heatmapimage .`
 
 To run application: 
 
-`docker run -d --name heatmaps -e MAPS_API_KEY=<MAPS_API_KEY_FROM_GOOGLE> -p 80:80 heatmapimage`
+`docker run -d --name heatmaps -e MAPS_API_KEY=<MAPS_API_KEY_FROM_GOOGLE> -p 1337:80 heatmapimage`
 
-You should be able to check it in your Docker container's URL, for example: http://192.168.99.100 or http://127.0.0.1
+You should be able to check it in your Docker container's URL, for example: http://localhost:1337/
 
