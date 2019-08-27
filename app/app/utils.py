@@ -27,14 +27,15 @@ def extract():
             else:
                 lat = row[latIndex]
                 lon = row[lonIndex]
-                if (lat,lon) in my_dictionary.keys():
-                    # retrieve current weight of gps location
-                    oldWeight = my_dictionary.get((lat,lon))
-                    newWeight = oldWeight + 1
-                    # update weight
-                    my_dictionary[(lat,lon)] = newWeight
-                else:
-                    my_dictionary.update({(lat,lon) : 1})
+                if (float(lat) != 0.0 and float(lon) != 0.0):       # coordinates of value 0.0 is bad data - skip them
+                    if (lat,lon) in my_dictionary.keys():
+                        # retrieve current weight of gps location
+                        oldWeight = my_dictionary.get((lat,lon))
+                        newWeight = oldWeight + 1
+                        # update weight
+                        my_dictionary[(lat,lon)] = newWeight
+                    else:
+                        my_dictionary.update({(lat,lon) : 1})
                 line_count += 1
     f.close()
     os.remove('myfile.csv')

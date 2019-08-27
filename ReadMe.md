@@ -54,5 +54,5 @@ In your web browser, navigate to the address `http://127.0.0.1:5000/` and upload
 
 `docker run -d --name heatmaps -e MAPS_API_KEY=<MAPS_API_KEY_FROM_GOOGLE> -p 1337:80 heatmapimage`
 
-You should be able to check access the web front end of the application on http://localhost:1337/ . Upload a CSV file with your telematics data and click upload to visualize your data.
+You should be able to check access the web front end of the application on http://localhost:1337/ . Submit a CSV file with your telematics data and click upload to visualize your data.
 
