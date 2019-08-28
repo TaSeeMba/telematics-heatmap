@@ -1,5 +1,12 @@
-# Telematics HeatMap (Still under development)
-This project is a visualization library for telematics data. The project aims to make it easier to get render data visualizations from CSV files. To use this application upload a CSV containing the fields `lat` and `lon` (case insenstive) and the application will render a heat map visualization of the data points. 
+# Telematics HeatMap
+This project is a visualization library for telematics data. The project aims to make it easier to render data visualizations from data in CSV files. To use this web application, upload a CSV containing the fields `lat` and `lon` (case insenstive) and the application will render a heat map visualization of the data points. 
+
+## Technologies used
+* **Docker** - packages application, runtime, configurations and dependencies.
+* **Flask** - actual telematics web application.
+* **uwsgi** - web server for the flask application.
+* **Nginx** - reverse proxy to the uwsgi web server.
+* **Google Maps Js API** - map component used for visualization.
 
 ## Input Rules
 * Any CSV file is accepted.
@@ -7,7 +14,7 @@ This project is a visualization library for telematics data. The project aims to
 * CSV files can contain other data columns. This app will only scrap the 2 `lat` and `lon` sub-stringed columns it expects.
 * The ordering and relative positions of the `lat` and `lon` sub-stringed columns does not matter. 
 
-## Additional Functionalities
+## Additional Application Features
 This app also comes with the following functionality:
 * Toggling heatmap on and off.
 * Changing gradient of heatmap visualization.
@@ -24,7 +31,7 @@ To use Google Maps in the front-end web appliacation, a Google Maps Javascript A
 
 * Also, ensure that you are running in a Python 3 environment.
 
-# Running the Application Locally
+# Running the Application In Development Environment
 1. Setup virtual environment
 ```
 python3 -m venv env
@@ -42,7 +49,7 @@ python -m pip install package
 `python main.py`
 
 5. Access the front-end web application: 
-In your web browser, navigate to the address `http://127.0.0.1:5000/` and upload a CSV file with your telematics data. 
+In your web browser, navigate to the address `http://127.0.0.1:5000/` in a web browser and upload a CSV file with your telematics data. 
 
 # Running the Application in Docker
 

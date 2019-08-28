@@ -1,5 +1,12 @@
 import csv
 import os
+import logging
+
+'''
+Evaluates whether a given data point is not an empty string, a None value or a 0.0 gps co-ordinate.
+'''
+def isValidDataPoint(point):
+    return bool(point and point.strip()) and float(point) != 0.0
 
 '''
 # This function primarily extracts lat and long data from any CSV file with columns contains case insensitive characters 'lat' and 'lon'
@@ -25,17 +32,21 @@ def extract():
                     return 'Incorrect format of CSV'
                 line_count += 1
             else:
-                lat = row[latIndex]
-                lon = row[lonIndex]
-                if (float(lat) != 0.0 and float(lon) != 0.0):       # coordinates of value 0.0 is bad data - skip them
-                    if (lat,lon) in my_dictionary.keys():
-                        # retrieve current weight of gps location
-                        oldWeight = my_dictionary.get((lat,lon))
-                        newWeight = oldWeight + 1
-                        # update weight
-                        my_dictionary[(lat,lon)] = newWeight
-                    else:
-                        my_dictionary.update({(lat,lon) : 1})
+                try :
+                    lat = row[latIndex]
+                    lon = row[lonIndex]
+                    # coordinates of value 0.0 and None is bad data - skip them
+                    if (isValidDataPoint(lat) and isValidDataPoint(lon)): 
+                        if (lat,lon) in my_dictionary.keys():
+                            # retrieve current weight of gps location
+                            oldWeight = my_dictionary.get((lat,lon))
+                            newWeight = oldWeight + 1
+                            # update weight
+                            my_dictionary[(lat,lon)] = newWeight
+                        else:
+                            my_dictionary.update({(lat,lon) : 1})
+                except :
+                    logging.exception("Ignoring bad data point.")
                 line_count += 1
     f.close()
     os.remove('myfile.csv')
