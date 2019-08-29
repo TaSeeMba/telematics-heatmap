@@ -6,7 +6,10 @@ import logging
 Evaluates whether a given data point is not an empty string, a None value or a 0.0 gps co-ordinate.
 '''
 def isValidDataPoint(point):
-    return bool(point and point.strip()) and float(point) != 0.0
+    try:
+        return bool(point and point.strip()) and float(point) != 0.0
+    except:
+        return False
 
 '''
 # This function primarily extracts lat and long data from any CSV file with columns contains case insensitive characters 'lat' and 'lon'
