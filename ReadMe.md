@@ -36,17 +36,21 @@ To use Google Maps in the front-end web appliacation, a Google Maps Javascript A
 ```
 python3 -m venv env
 source ./env/bin/activate
-python -m pip install package
 ```
 
 2. Setup the `MAPS_API_KEY` environment variable in your virtual environment :
+
 `export MAPS_API_KEY=<MAPS_API_KEY_FROM_GOOGLE>`
 
 3. Install dependencies required by application :
+
+`cd app` 
+
 `pip install --no-cache-dir -r requirements.txt`
 
 4. Run the application locally:
-`python main.py`
+
+`python app.py`
 
 5. Access the front-end web application: 
 In your web browser, navigate to the address `http://127.0.0.1:5000/` in a web browser and upload a CSV file with your telematics data. 
