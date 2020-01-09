@@ -1,5 +1,9 @@
 # Telematics HeatMap
-This project is a visualization library for telematics data. The project aims to make it easier to render data visualizations from data in CSV files. To use this web application, upload a CSV containing the fields `lat` and `lon` (case insenstive) and the application will render a heat map visualization of the data points. 
+This is a visualization library for telematics data. The project aims to make it easier to render data visualizations from data in CSV files. To use this web application, upload a CSV containing the fields `lat` and `lon` (case insenstive) to render a heat map visualization of the data points. 
+
+# Preview of Running Application
+
+![Preview of running application](demo.gif)
 
 ## Technologies used
 * **Docker** - packages application, runtime, configurations and dependencies.
@@ -21,10 +25,6 @@ This app also comes with the following functionality:
 * Changing radius of heatmap visualization.
 * Changing opacity of heatmap visualization.
 
-# Preview of Running Application
-
-![Preview of running application](demo.gif)
-
 # Getting Started
 
 To use Google Maps in the front-end web appliacation, a Google Maps Javascript API key is required. The instructions of obtaining the API key are documented [here] (https://developers.google.com/maps/documentation/javascript/get-api-key).
@@ -44,7 +44,7 @@ source ./env/bin/activate
 
 3. Install dependencies required by application :
 
-`cd app` 
+`cd application` 
 
 `pip install --no-cache-dir -r requirements.txt`
 

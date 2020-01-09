@@ -10,8 +10,8 @@ RUN pip install uwsgi
 RUN rm -v /etc/nginx/nginx.conf
 ADD config/nginx.conf /etc/nginx/
 
-COPY app ./app
-WORKDIR /app
+COPY application ./application
+WORKDIR /application
 
 RUN pip install -r requirements.txt
 
