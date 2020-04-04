@@ -1,5 +1,5 @@
 # Telematics HeatMap
-This is a visualization library for telematics data. The project aims to make it easier to render data visualizations from data in CSV files. To use this web application, upload a CSV containing the fields `lat` and `lon` (case insenstive) to render a heat map visualization of the data points. 
+This project provides a heatmap visualization library for telematics data. The project aims to make it easier to render data visualizations of data contained in CSV files. To view heatmaps using this web application, upload any CSV file with data points containing atleast column fields named `lat` and `lon` *(case insenstive, in any order and CSV can contain other column fields)*. 
 
 # Preview of Running Application
 
@@ -10,7 +10,7 @@ This is a visualization library for telematics data. The project aims to make it
 * **Flask** - actual telematics web application.
 * **uwsgi** - web server for the flask application.
 * **Nginx** - reverse proxy to the uwsgi web server.
-* **Google Maps Js API** - map component used for visualization.
+* **Google Maps JS API** - map component used for visualization.
 
 ## Input Rules
 * Any CSV file is accepted.
