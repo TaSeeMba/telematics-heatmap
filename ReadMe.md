@@ -27,7 +27,7 @@ This app also comes with the following functionality:
 
 # Getting Started
 
-To use Google Maps in the front-end web appliacation, a Google Maps Javascript API key is required. The instructions of obtaining the API key are documented [here] (https://developers.google.com/maps/documentation/javascript/get-api-key).
+To use Google Maps in the front-end web appliacation, a Google Maps Javascript API key is required. The instructions of obtaining the API key are documented [here](https://developers.google.com/maps/documentation/javascript/get-api-key).
 
 * Also, ensure that you are running in a Python 3 environment.
 
